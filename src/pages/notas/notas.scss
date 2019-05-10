@@ -1,0 +1,43 @@
+page-notas {
+
+    
+
+    .customClass{
+        color:#e74c3c !important;
+       }
+
+       .titulo{
+        font-size: 4em;
+        color: #e74c3c;
+       }
+
+       .fondo{
+        background-color: #191919;
+        }
+        .card{
+            background-color: #393939;
+        }
+        h1{
+            
+            color: white;
+            padding-top: 5px;
+            padding-left: 10px;
+        }
+        h3{
+            color: white;
+            margin-top: 5px;
+            padding-left: 75%;
+            padding-bottom: 3px;
+           
+        }
+        .divclass{
+            color: white;
+            margin-left: 8px;
+            margin-right: 10px;
+            line-height: 1.5em;
+            height: 3em;       /* height is 2x line-height, so two lines will display */
+            overflow: hidden;
+        }
+        
+
+}

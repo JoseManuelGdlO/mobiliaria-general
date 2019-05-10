@@ -1,0 +1,48 @@
+<!--
+  Generated template for the MobiliarioPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton >
+        
+    <ion-title>Inventario</ion-title>
+
+<ion-toolbar>
+    <ion-searchbar (ionInput)="getItems($event)" placeholder="Buscar por nombre"></ion-searchbar>
+</ion-toolbar>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="margin-class" padding >
+
+  
+ 
+      <ion-list class="mobList-class" *ngFor="let item of inventario">
+          <ion-item>
+            <h2 class="h1Nomb">{{item.nombre_mob}}</h2>
+            <p>{{item.cantidad_mob}} Piezas </p>
+            <p> ${{item.costo_mob}} c/u</p>
+            <button ion-button clear  (click)="openModal(item.nombre_mob)" item-end>Detalles</button>
+            
+          </ion-item>
+        </ion-list>
+     
+       <!--
+      <ion-list>
+          <ion-item *ngFor="let item of items" (click)="openModal(item)">
+            {{ item }}
+          </ion-item>
+        </ion-list>
+-->
+        <ion-fab bottom right>
+            <button ion-fab (click)="anadirInvModal();"><ion-icon name="add"></ion-icon></button>
+        </ion-fab>
+       
+      
+</ion-content>

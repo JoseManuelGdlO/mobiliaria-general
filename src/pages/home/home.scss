@@ -1,0 +1,41 @@
+page-home {
+
+
+    .spacer{
+        background-color: #488aff;
+    }
+    .toolbar-background{
+        background-color: #488aff;
+    }
+
+    
+.calendario{
+    position: absolute;
+    width: 100%;
+}
+    .cardnopadaga{
+        background-color: #ff3d00; 
+        
+      }
+
+      .cardpadaga{
+        background-color: #80deea; 
+        
+      }
+   
+    .ocultarnoevents{
+        position:absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+        top: 1%
+        
+
+    }
+    .eventos{
+        position:absolute;
+        width: 100%;
+        top: 44%;
+    }
+    
+}

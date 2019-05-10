@@ -1,0 +1,204 @@
+<!--
+  Generated template for the EventoAgregaritemsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+  <div class="spacer" color="primary" style="height: 15px;"></div>  
+-->
+
+<ion-header class="header">
+    
+  <ion-navbar color="primary">
+      
+    
+       <ion-toolbar [hidden]="hideCards">
+        <ion-searchbar (ionInput)="getItems($event)" placeholder="Buscar"></ion-searchbar>
+        <ion-buttons left>
+            <button ion-button icon-only (click)="cerrarModal()">
+              <ion-icon name="exit"></ion-icon>
+            </button>
+          </ion-buttons>
+      </ion-toolbar>
+
+      <ion-toolbar [hidden]="!hideCards">
+          <ion-title>Datos del Evento</ion-title>
+        </ion-toolbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content [hidden]="hideDates">
+
+
+    <ion-fab top right edge [hidden]="!hideCards">
+       
+          <button ion-fab mini color="secondary" (click)="descuentos()">
+            <ion-icon name="pricetags"></ion-icon>
+          </button>
+          <button ion-fab mini color="secondary" (click)="iva()">
+              IVA
+            </button>
+        
+      </ion-fab>
+
+      
+      
+
+      
+        
+        
+      
+
+        
+
+
+    <ion-list>
+      
+  
+     
+      <ion-item>
+          <ion-label>Tipo de Evento</ion-label>
+          <ion-select [(ngModel)]="tipo_evento">
+            <ion-option value="boda">Boda</ion-option>
+            <ion-option value="cumpleaños">Cumpleaños</ion-option>
+            <ion-option value="quinceañera">Quinceañera</ion-option>
+            <ion-option value="bautizo">Bautizo</ion-option>
+            <ion-option value="otro">Otro</ion-option>
+          </ion-select>
+        </ion-item>
+
+
+          
+
+          <ion-item>
+              <ion-label>Fecha de Entrega: </ion-label>
+              <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY"  min="2017" max="2050-10-17" [(ngModel)]="fecha_envio_evento" disabled></ion-datetime>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Hora de Entrega: </ion-label>
+                <ion-datetime displayFormat="HH:mm" pickerFormtat="HH:mm" [(ngModel)]="hora_envio_evento"></ion-datetime>
+              </ion-item>
+  
+        
+              <ion-item>
+                  <ion-label>Fecha de recoleccion </ion-label>
+                <ion-datetime displayFormat="DD/MM/YYYY"  pickerFormat="DD/MM/YYYY"  min="2017" max="2050-10-17" [(ngModel)]="fecha_recoleccion_evento" ></ion-datetime>
+              </ion-item>
+
+              <ion-item>
+                  <ion-label>Hora de recoleccion </ion-label>
+                <ion-datetime displayFormat="HH:mm" pickerFormtat="HH:mm" [(ngModel)]="hora_recoleccion_evento"></ion-datetime>
+              </ion-item>
+  
+              <ion-item class="item no-padding">
+                <ion-searchbar animated (ionInput)="getClientes($event)" (click)="revisar()" type = "text" placeholder="Titular del Evento:" [(ngModel)]="nombre_titular_evento" ></ion-searchbar>
+              </ion-item>
+
+              <ion-list [hidden]="vistaBoo">
+                <ion-item *ngFor="let item of inventarioCliente" (click)="itemClick(item.nombre_cliente,item.telefono_cliente, item.correo_cliente)">
+                    <h2 class="h1Nomb">{{item.nombre_cliente}}</h2>                        
+                  </ion-item>
+              </ion-list>
+
+                  
+                  <ion-item>
+                    <ion-input type = "tel" placeholder="Telefono del titular:" [(ngModel)]="telefono_titular_evento" clearInput></ion-input>
+                  </ion-item>
+                  
+                  <ion-item>
+                        <ion-input type = "text" placeholder="Direccion" [(ngModel)]="direccion_evento" clearInput></ion-input>
+                      </ion-item>
+
+                      <ion-item>
+                          <ion-label>Se realizo pago: </ion-label>
+                          <ion-toggle [(ngModel)]="pagado_evento"></ion-toggle>
+                        </ion-item>
+
+                        <ion-item [hidden]="!pagado_evento">
+                            <ion-input type = "text" placeholder="Cantidad Pagada" [(ngModel)]="anticipo"></ion-input>
+                          </ion-item>
+  
+                    
+  
+    </ion-list>
+  
+  
+  
+    <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <button ion-button round icon-end color="danger"(click)="cerrarModal()">
+                <ion-icon padding name="close-circle"></ion-icon>Cancelar
+            </button>
+          </ion-col>
+          <ion-col col-6>
+            <button ion-button round icon-end (click)="ocultarFormulario()">
+                <ion-icon padding name="checkmark"></ion-icon>Añadir Inv
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  
+  
+  </ion-content>
+  
+
+<ion-content [hidden]="hideCards">
+
+
+
+    
+<ion-list>
+  
+    <ion-card
+    (click)="presentAlert(movil.id_mob, movil.nombre_mob, movil.cantidad_mob, movil.costo_mob)" 
+    *ngFor="let movil of inventario">
+       
+    <ion-card-content>
+      <ion-card-title>
+          {{movil.nombre_mob}}
+        </ion-card-title>
+      <p>
+        Cantidad en el Inventario: {{movil.cantidad_mob}}
+      </p>
+      <p>
+        Costo: {{movil.costo_mob}}
+      </p>
+    </ion-card-content>
+     
+    </ion-card>
+  </ion-list>
+  
+  
+</ion-content>
+
+<ion-footer no-border>
+
+  <ion-toolbar>
+      
+              
+
+
+              <ion-grid>
+                  <ion-row>
+                    <ion-col col-6>
+                        <ion-item>
+                            <ion-label color="primary">Subtotal: </ion-label>
+                            <ion-input readonly="true" [value]="costo_subtotal"></ion-input>
+                          </ion-item>
+                    </ion-col>
+                    <ion-col col-6>
+                        <ion-item>
+                            <ion-label color="primary">Final: </ion-label>
+                            <ion-input readonly="true" [value]="costo_total"></ion-input>
+                          </ion-item>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+           
+    <button [hidden]="hideCards" ion-button full (click)="tgExtras()">Continuar</button>
+    <button [hidden]="!hideCards" [disabled]=botonAgregar ion-button full (click)="continuarCotizacion()">Agregar Evento</button>
+  
+  </ion-toolbar>
+
+</ion-footer>

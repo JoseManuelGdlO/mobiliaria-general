@@ -1,0 +1,39 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "crdevelopers.notas.seguras"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "crdevelopers.notas.seguras"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "crdevelopers.notas.seguras"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "crdevelopers.notas.seguras"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "crdevelopers.notas.seguras"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "crdevelopers.notas.seguras"
+    },
+    "cordova-wheel-selector-plugin": {
+      "PACKAGE_NAME": "crdevelopers.notas.seguras"
+    },
+    "cordova-plugin-screen-orientation": {
+      "PACKAGE_NAME": "crdevelopers.notas.seguras"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "crdevelopers.notas.seguras"
+    }
+  },
+  "dependent_plugins": {}
+}

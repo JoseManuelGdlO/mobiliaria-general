@@ -1,0 +1,62 @@
+
+<ion-header class="spacer">
+    <div class="spacer" style="height: 10px;"></div>   
+  <ion-navbar class="spacer">
+      
+    <ion-title>
+      {{ viewTitle }}
+    </ion-title>
+
+ <ion-buttons end>
+    <button ion-button icon-only (click)="abrirAlert()">
+      <ion-icon name="add"></ion-icon>
+  </button>
+</ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+
+
+<ion-content >
+
+    <ion-fab top right edge>
+        <button ion-fab mini (click)="abrirAlert()" color="secondary"><ion-icon name="add"></ion-icon>
+        </button>
+        
+      </ion-fab>
+    
+      <div  scrollY="false">
+        <calendar 
+        [eventSource]="eventSource"
+        [calendarMode]="calendar.mode"
+        [currentDate]="calendar.currentDate"
+        (onEventSelected)="onEventSelected($event)"
+        (onTitleChanged)="OnViewTitleChanged($event)"
+        (onTimeSelected)="onTimeSelected($event)"
+        step="30"
+        class="calendar">
+        </calendar>
+</div>
+
+  <div class="ocultarnoevents"></div>
+  
+
+
+    <div class="eventos">
+      <ion-list>
+          <ion-card *ngFor="let evento of eventosChidos" (click)="mostrarEvento(evento.id_evento, evento.fecha_envio_evento)">
+                <div *ngIf="evento.saldo > 1; else pagado" class="cardnopadaga">
+                    <ion-card-header color="light">{{evento.hora_envio_evento}} | {{evento.nombre_titular_evento}}</ion-card-header>
+                    <ion-card-content color="light">{{evento.direccion_evento}}</ion-card-content>   
+                  </div>
+                  <ng-template #pagado class="cardpadaga">
+                      <ion-card-header>{{evento.hora_envio_evento}} | {{evento.nombre_titular_evento}}</ion-card-header>
+                      <ion-card-content>{{evento.direccion_evento}}</ion-card-content>   
+                  </ng-template>
+          </ion-card>
+      </ion-list>
+
+  </div>
+  
+</ion-content>

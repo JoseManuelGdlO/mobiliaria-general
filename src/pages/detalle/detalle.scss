@@ -1,0 +1,43 @@
+page-detalle {
+
+    ion-card {
+        position: relative;
+        text-align: center;
+      }
+    
+      .card-title {
+        position: absolute;
+        top: 36%;
+        font-size: 2.0em;
+        width: 100%;
+        font-weight: bold;  
+        color: rgb(23, 0, 235);
+      }
+    
+      .card-subtitle {
+        font-size: 1.0em;
+        position: absolute;
+        top: 52%;
+        width: 100%;
+        color: #fff;
+      }
+
+      .iconEdit{
+
+        margin-right: 5%;
+      }
+
+      .btnEdit{
+
+        font-size: 100dp;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-style: italic;
+      }
+
+      .nombre{
+
+        font-weight: bold;  
+        color: rgb(23, 0, 235);
+      }
+    
+}

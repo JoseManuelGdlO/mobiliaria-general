@@ -1,0 +1,59 @@
+<!--
+  Generated template for the DetallePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button (click)="EditarItem()">Editar</button>
+      <button ion-button (click)="eliminarItem()">Eliminar</button>
+      <button ion-button (click)="cerrarModal()">Cerrar</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+    
+  <ion-list *ngFor="let det of detainv">
+      <h1 class="nombre" align="center">{{det.nombre_mob}}</h1>
+    <ion-card >
+        <img [src]="det.ruta_imagen"/>
+        <div class="card-title">
+        </div>
+      </ion-card>
+    
+      <ion-card >
+          <ion-card-header>
+            
+            <h1 align="left">En el Inventario: {{det.cantidad_mob}}</h1>
+          </ion-card-header>
+          <ion-card-content>
+            <div align="left">Costo:  ${{det.costo_mob}}</div>
+
+            <!--
+            <ion-item>
+                <ion-range disabled min="0" max="det.cantidad_mob" [(ngModel)]="det.cantidad_mob" color="secondary">
+                    <ion-label range-left>0</ion-label>
+                    <ion-label range-right>{{det.cantidad_mob}}</ion-label>
+                </ion-range>
+               
+              </ion-item>
+              <p align="left">Disponibles : {{det.cantidad_mob}}</p> 
+              <ion-item>
+                <p align="left">Extras: {{det.extra_mob}}</p>
+              </ion-item>
+              <ion-item>
+                <p align="left">Costo Extra: {{det.extra_mob_costo}}</p>
+              </ion-item>-->
+          </ion-card-content>
+        </ion-card>
+  </ion-list>
+
+  
+</ion-content>
